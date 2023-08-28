@@ -1,0 +1,81 @@
+{{ addRoomsForm.errors }}
+
+<div class="alert alert-success">{{ message }}</div>
+
+<form #addRoomsForm="ngForm" (ngSubmit)="handleRoom()">
+  <div class="form-group">
+    <input
+      class="form-control"
+      type="text"
+      name="roomType"
+      [(ngModel)]="room.roomType"
+      placeholder="Room Type"
+    />
+  </div>
+  <div class="form-group">
+    <input
+      name="price"
+      type="number"
+      placeholder="Price"
+      class="form-control"
+      [(ngModel)]="room.price"
+    />
+  </div>
+  <div class="form-group">
+    <input
+      type="text"
+      name="photos"
+      class="form-control"
+      placeholder="Photos"
+      [(ngModel)]="room.photos"
+    />
+  </div>
+  <div class="form-group">
+    <input
+      type="text"
+      name="amenties"
+      class="form-control"
+      placeholder="Amenties"
+      [(ngModel)]="room.amenties"
+    />
+  </div>
+  <div class="form-group">
+    <input
+      type="datetime"
+      name="checkInTime"
+      class="form-control"
+      placeholder="Check In Time"
+      [(ngModel)]="room.checkInTime"
+    />
+  </div>
+  <div class="form-group">
+    <input
+      type="datetime"
+      name="checkOutTime"
+      class="form-control"
+      placeholder="Check Out Time"
+      [(ngModel)]="room.checkOutTime"
+    />
+  </div>
+  <div class="form-group">
+    <input
+      min="1"
+      max="5"
+      required
+      type="number"
+      name="rating"
+      class="form-control"
+      placeholder="Rating"
+      [(ngModel)]="room.rating"
+    />
+  </div>
+  <div class="form-group">
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="addRoomsForm.invalid"
+    >
+      Submit
+    </button>
+  </div>
+</form>

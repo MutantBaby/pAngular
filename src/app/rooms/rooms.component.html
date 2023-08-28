@@ -1,0 +1,39 @@
+<!-- <h1>Welcome to {{ hotelName }}</h1> -->
+
+<app-header></app-header>
+<app-header></app-header>
+<app-header></app-header>
+
+<div>Total Rooms: {{ room.totalRooms ?? "No Rooms" }}</div>
+
+<div *ngIf="room.totalRooms">
+  <div *ngIf="room?.availableRooms! > 5">
+    Available Rooms are {{ room.availableRooms }}
+  </div>
+
+  <button
+    class="btn btn-primary"
+    [ngStyle]="{ 'background-color': hideRooms ? 'steelblue' : 'tomato' }"
+    (click)="onToggle()"
+  >
+    Hide Rooms Detail
+  </button>
+</div>
+
+<div *ngIf="hideRooms">
+  <button class="btn btn-primary" (click)="addRoom()">Add Room</button>
+
+  <button class="btn btn-primary" (click)="editRoom()">Edit Room</button>
+
+  <button class="btn btn-primary" (click)="deleteRoom()">Delete Room</button>
+
+  <!-- <h4>Total Count: {{ roomsCount$ | async }}</h4> -->
+
+  <div *ngIf="rooms$ | async as rooms">
+    <app-rooms-list
+      [title]="title"
+      [rooms]="rooms"
+      (selectedRoom)="selectRoom($event)"
+    ></app-rooms-list>
+  </div>
+</div>
