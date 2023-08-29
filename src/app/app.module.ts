@@ -15,15 +15,18 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { RoomsComponent } from './rooms/rooms.component';
+import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { HoverDirective } from './directives/hover/hover.directive';
 import { ContainerComponent } from './container/container.component';
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 import { AddRoomsComponent } from './rooms/add-rooms/add-rooms.component';
 import { RoomsListComponent } from './rooms/rooms-list/rooms-list.component';
 import { AppInitializerService } from './appInitializer/app-initializer.service';
 import { RoomBookingComponent } from './rooms/room-booking/room-booking.component';
+import { EmailValidatorDirective } from './directives/emailValidator/email-validator.directive';
 import { AppHttpInterceptorInterceptor } from './appHttpInterceptor/app-http-interceptor.interceptor';
 
 function AppInitializerFactory(
@@ -36,6 +39,8 @@ function AppInitializerFactory(
   declarations: [
     AppComponent,
     RoomsComponent,
+    LoginComponent,
+    HoverDirective,
     HeaderComponent,
     EmployeeComponent,
     NotFoundComponent,
@@ -44,6 +49,7 @@ function AppInitializerFactory(
     RoomsListComponent,
     AppNavbarComponent,
     RoomBookingComponent,
+    EmailValidatorDirective,
   ],
   imports: [
     FormsModule,

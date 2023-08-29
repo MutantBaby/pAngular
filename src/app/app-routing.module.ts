@@ -1,3 +1,4 @@
+import { LoginComponent } from './login/login.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -10,6 +11,7 @@ import { RoomBookingComponent } from './rooms/room-booking/room-booking.componen
 
 const routes: Routes = [
   { path: 'rooms', component: RoomsComponent },
+  { path: 'login', component: LoginComponent },
   { path: 'employee', component: EmployeeComponent },
   { path: 'rooms/add', component: AddRoomsComponent },
   { path: 'rooms/:id', component: RoomBookingComponent },
