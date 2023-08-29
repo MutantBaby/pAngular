@@ -1,6 +1,7 @@
-import { RoomsService } from './../services/rooms.service';
 import { Component } from '@angular/core';
+
 import { RoomList } from '../rooms.interface';
+import { RoomsService } from './../services/rooms.service';
 
 @Component({
   selector: 'app-add-rooms',
@@ -27,6 +28,6 @@ export class AddRoomsComponent {
       this.message = 'Room Added Successfully';
     });
 
-    console.log("||= => ", )
+    // console.log("||= => ", )
   }
 }

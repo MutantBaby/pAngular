@@ -1,15 +1,15 @@
 <!-- <h1>Welcome to {{ hotelName }}</h1> -->
 
+<!-- <app-header></app-header>
 <app-header></app-header>
-<app-header></app-header>
-<app-header></app-header>
+<app-header></app-header> -->
 
-<div>Total Rooms: {{ room.totalRooms ?? "No Rooms" }}</div>
+<h2>Total Rooms: {{ room.totalRooms ?? "No Rooms" }}</h2>
 
 <div *ngIf="room.totalRooms">
-  <div *ngIf="room?.availableRooms! > 5">
+  <h3 *ngIf="room?.availableRooms! > 5">
     Available Rooms are {{ room.availableRooms }}
-  </div>
+  </h3>
 
   <button
     class="btn btn-primary"
@@ -22,9 +22,7 @@
 
 <div *ngIf="hideRooms">
   <button class="btn btn-primary" (click)="addRoom()">Add Room</button>
-
   <button class="btn btn-primary" (click)="editRoom()">Edit Room</button>
-
   <button class="btn btn-primary" (click)="deleteRoom()">Delete Room</button>
 
   <!-- <h4>Total Count: {{ roomsCount$ | async }}</h4> -->
@@ -37,3 +35,5 @@
     ></app-rooms-list>
   </div>
 </div>
+
+<router-outlet></router-outlet>

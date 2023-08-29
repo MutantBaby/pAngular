@@ -14,18 +14,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { RoomsComponent } from './rooms/rooms.component';
+import { BookingModule } from './booking/booking.module';
 import { LoginComponent } from './login/login.component';
-import { HeaderComponent } from './header/header.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HoverDirective } from './directives/hover/hover.directive';
 import { ContainerComponent } from './container/container.component';
 import { AppNavbarComponent } from './app-navbar/app-navbar.component';
-import { AddRoomsComponent } from './rooms/add-rooms/add-rooms.component';
-import { RoomsListComponent } from './rooms/rooms-list/rooms-list.component';
 import { AppInitializerService } from './appInitializer/app-initializer.service';
-import { RoomBookingComponent } from './rooms/room-booking/room-booking.component';
 import { EmailValidatorDirective } from './directives/emailValidator/email-validator.directive';
 import { AppHttpInterceptorInterceptor } from './appHttpInterceptor/app-http-interceptor.interceptor';
 
@@ -34,21 +30,18 @@ function AppInitializerFactory(
 ): () => Observable<Object> {
   return () => appInitializerService.init();
 }
-
 @NgModule({
   declarations: [
+    // Components
     AppComponent,
-    RoomsComponent,
     LoginComponent,
-    HoverDirective,
-    HeaderComponent,
     EmployeeComponent,
     NotFoundComponent,
-    AddRoomsComponent,
     ContainerComponent,
-    RoomsListComponent,
     AppNavbarComponent,
-    RoomBookingComponent,
+
+    // Directives
+    HoverDirective,
     EmailValidatorDirective,
   ],
   imports: [
@@ -57,10 +50,10 @@ function AppInitializerFactory(
     MatIconModule,
     MatListModule,
     MatButtonModule,
-    AppRoutingModule,
     HttpClientModule,
     MatToolbarModule,
     MatSidenavModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
   ],
   providers: [
@@ -72,8 +65,8 @@ function AppInitializerFactory(
     {
       multi: true,
       provide: APP_INITIALIZER,
-      useFactory: AppInitializerFactory,
       deps: [AppInitializerService],
+      useFactory: AppInitializerFactory,
     },
   ],
   bootstrap: [AppComponent],

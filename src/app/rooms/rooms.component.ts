@@ -11,6 +11,7 @@ import {
   OnInit,
   Self,
 } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Observable, Subscriber, map } from 'rxjs';
 import { HttpEvent, HttpEventType } from '@angular/common/http';
 
