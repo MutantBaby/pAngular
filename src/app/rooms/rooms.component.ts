@@ -19,6 +19,7 @@ import { Room, RoomList } from './rooms.interface';
 import { RoomsService } from './services/rooms.service';
 import { HeaderComponent } from '../header/header.component';
 import { environment } from 'src/environments/environment.prod';
+import { ConfigService } from '../services/config/config.service';
 
 @Component({
   selector: 'app-rooms',
@@ -59,6 +60,7 @@ export class RoomsComponent implements OnInit, AfterViewInit {
 
   constructor(
     private cd: ChangeDetectorRef,
+    private config: ConfigService,
     @SkipSelf() private roomsService: RoomsService
   ) {
     console.log('Inside -> RoomsComponent -> Constructor');

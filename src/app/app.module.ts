@@ -1,5 +1,4 @@
 import { Observable } from 'rxjs';
-import { AsyncPipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
@@ -13,8 +12,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 
+import {
+  RouteConfig,
+  RouteConfigService,
+} from './services/config/route-config.service';
+import {
+  AppConfig,
+  AppConfigService,
+} from './InjectionTokens/app-config/app-config.service';
 import { AppComponent } from './app.component';
-import { BookingModule } from './booking/booking.module';
 import { LoginComponent } from './login/login.component';
 import { EmployeeComponent } from './employee/employee.component';
 import { NotFoundComponent } from './not-found/not-found.component';
@@ -57,6 +63,14 @@ function AppInitializerFactory(
     BrowserAnimationsModule,
   ],
   providers: [
+    {
+      useValue: AppConfig,
+      provide: AppConfigService,
+    },
+    {
+      useValue: { title: 'Home' },
+      provide: RouteConfigService,
+    },
     {
       multi: true,
       provide: HTTP_INTERCEPTORS,

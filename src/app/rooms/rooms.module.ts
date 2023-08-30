@@ -7,6 +7,7 @@ import { RoomsRoutingModule } from './rooms-routing.module';
 import { AddRoomsComponent } from './add-rooms/add-rooms.component';
 import { RoomsListComponent } from './rooms-list/rooms-list.component';
 import { RoomBookingComponent } from './room-booking/room-booking.component';
+import { RouteConfigService } from '../services/config/route-config.service';
 
 @NgModule({
   declarations: [
@@ -22,5 +23,11 @@ import { RoomBookingComponent } from './room-booking/room-booking.component';
     RoomBookingComponent,
   ],
   imports: [FormsModule, CommonModule, RoomsRoutingModule],
+  providers: [
+    {
+      useValue: { title: 'Room' },
+      provide: RouteConfigService,
+    },
+  ],
 })
 export class RoomsModule {}
