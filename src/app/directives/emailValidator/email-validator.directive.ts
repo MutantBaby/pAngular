@@ -20,7 +20,7 @@ export class EmailValidatorDirective implements Validator {
   constructor() {}
 
   validate(control: AbstractControl<any, any>): ValidationErrors | null {
-    console.log('Email Validator -> validate -> control ', control);
+    // console.log('Email Validator -> validate -> control ', control);
 
     const value: string = control.value as string;
 
@@ -33,7 +33,7 @@ export class EmailValidatorDirective implements Validator {
   }
 
   registerOnValidatorChange?(fn: () => void): void {
-    console.log('Email Validator -> registerOnValidatorChange -> fn ', fn);
+    // console.log('Email Validator -> registerOnValidatorChange -> fn ', fn);
 
     // throw new Error('Method not implemented.');
   }

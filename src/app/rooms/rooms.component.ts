@@ -63,14 +63,14 @@ export class RoomsComponent implements OnInit, AfterViewInit {
     private config: ConfigService,
     @SkipSelf() private roomsService: RoomsService
   ) {
-    console.log('Inside -> RoomsComponent -> Constructor');
+    // console.log('Inside -> RoomsComponent -> Constructor');
     // console.log('Inside ', this.roomsService.getRooms$);
     // this.roomsList = this.roomsService.getRooms();
   }
 
   ngOnInit(): void {
-    console.log('Inside -> RoomsComponent -> OnInit');
-    console.log('OnInit is called');
+    // console.log('Inside -> RoomsComponent -> OnInit');
+    // console.log('OnInit is called');
 
     // this.roomsService.data$.subscribe((data) => {
     //   console.log('DATA$ ', data?.body);
@@ -140,7 +140,7 @@ export class RoomsComponent implements OnInit, AfterViewInit {
   // }
 
   ngAfterViewInit(): void {
-    console.log('Inside -> RoomsComponent -> AfterViewInit');
+    // console.log('Inside -> RoomsComponent -> AfterViewInit');
     // console.log('AfterViewInit is called');
     // console.log(
     //   'headerComponent -> Inside RoomComponent',

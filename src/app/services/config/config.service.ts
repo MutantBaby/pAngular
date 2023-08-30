@@ -9,7 +9,7 @@ export class ConfigService {
   constructor(
     @Inject(RouteConfigService) private routeConfig: RouteConfigInterface
   ) {
-    console.log('Config Service ^_^');
-    console.log('Route COnfig ^_^', this.routeConfig);
+    // console.log('Config Service ^_^');
+    // console.log('Route COnfig ^_^', this.routeConfig);
   }
 }

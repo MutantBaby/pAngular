@@ -22,7 +22,7 @@ export class RoomsService implements OnInit, AfterViewInit {
   public data$: Observable<any> = this.dataSubject.asObservable();
 
   constructor(private http: HttpClient) {
-    console.log('Inside -> RoomsService -> Constructor');
+    // console.log('Inside -> RoomsService -> Constructor');
     // console.log('Env Production | ', environment);
     // console.log('Rooms Services Initialized');
     // this.#roomsList = this.getRooms();
@@ -33,11 +33,11 @@ export class RoomsService implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    console.log('Inside -> RoomsService -> OnInit');
+    // console.log('Inside -> RoomsService -> OnInit');
   }
 
   ngAfterViewInit(): void {
-    console.log('Inside -> RoomsService -> AfterViewInit');
+    // console.log('Inside -> RoomsService -> AfterViewInit');
   }
 
   // getRooms(): Observable<RoomList[]> {

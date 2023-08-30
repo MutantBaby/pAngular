@@ -18,7 +18,7 @@ export class AppHttpInterceptorInterceptor implements HttpInterceptor {
     request: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    console.log('Inside -> AppHttpInterceptorInterceptor -> intercept');
+    // console.log('Inside -> AppHttpInterceptorInterceptor -> intercept');
 
     const newRequest: HttpRequest<unknown> = request.clone({
       headers: new HttpHeaders({ token: 'imTheGreatToken' }),

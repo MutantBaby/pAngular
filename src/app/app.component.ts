@@ -10,7 +10,7 @@ import {
   OnDestroy,
 } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import { filter, takeUntil } from 'rxjs/operators';
 import { AsyncPipe } from '@angular/common';
 
 import {
@@ -22,6 +22,7 @@ import { RoomsService } from './rooms/services/rooms.service';
 import { AppConfigInterface } from './InjectionTokens/app-config/app-config.interface';
 import { LocalStorageTokenService } from './InjectionTokens/local-storage-token/local-storage-token.service';
 import { AppInitializerService } from './appInitializer/app-initializer.service';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -40,14 +41,18 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   // @ViewChild('user', { read: ViewContainerRef }) user!: ViewContainerRef;
 
   constructor(
+    private router: Router,
     private cd: ChangeDetectorRef,
-    // private roomsService: RoomsService,
+    private roomsService: RoomsService,
     private appInitializerService: AppInitializerService,
     @Inject(AppConfigService) private appConfig: AppConfigInterface,
     @Inject(LocalStorageTokenService) private localStorageToken: Storage
   ) {
-    console.log('| AppInitializerService ', appInitializerService);
-    // console.log('Inside AppComponent Constructor\n'); 
+    // this.router.events.subscribe((e) => {
+    //   console.log('| AppComponent -> Constructor -> Router Event', e);
+    // });
+    // console.log('| AppInitializerService ', appInitializerService);
+    // console.log('Inside AppComponent Constructor\n');
     // console.log('Inside ->  AppComponent -> Constructor');
     // this.roomsService.getRooms$
     //   .pipe(takeUntil(this.destroy$))
@@ -64,7 +69,19 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    console.log('Inside ->  AppComponent -> OnInit');
+    this.router.events
+      .pipe(filter((e) => e instanceof NavigationStart))
+      .subscribe((e) => {
+        console.log('Navigation Started');
+      });
+
+    this.router.events
+      .pipe(filter((e) => e instanceof NavigationEnd))
+      .subscribe((e) => {
+        console.log('Navigation Ended');
+      });
+
+    // console.log('Inside ->  AppComponent -> OnInit');
     // this.name.nativeElement.innerText = '✅✅';
     // console.log('LocalStorageToken -> ngOnInit | ', this.localStorageToken);
 
