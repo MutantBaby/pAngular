@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class LoginService {
+  isAdmin: boolean = false;
   isLoggedIn: boolean = false;
 
   constructor() {
@@ -12,9 +13,12 @@ export class LoginService {
   }
 
   login(email: string, password: string) {
-    if (email === 'admin@gmail.com' && password === 'admin')
+    if (email === 'admin@gmail.com' && password === 'admin') {
+      this.isAdmin = true;
+      this.isLoggedIn = true;
+    } else if (email === 'user@gmail.com' && password === 'user')
       this.isLoggedIn = true;
 
-    return false;
+    return this.isLoggedIn;
   }
 }

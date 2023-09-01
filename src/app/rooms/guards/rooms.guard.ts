@@ -2,22 +2,19 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
-  CanActivateChild,
-  CanActivateChildFn,
-  Router,
   RouterStateSnapshot,
+  CanActivateChildFn,
+  CanActivateChild,
   UrlTree,
+  Router,
 } from '@angular/router';
-import { LoginService } from 'src/app/login/services/login.service';
 
-export const roomsGuard: CanActivateChildFn = (childRoute, state) => {
-  return true;
-};
+import { LoginService } from 'src/app/login/services/login.service';
 
 @Injectable()
 export class RoomsGuard implements CanActivateChild {
   constructor(private route: Router, private loginService: LoginService) {
-    console.log('Login Guard');
+    console.log('Room Guard');
   }
 
   canActivateChild(
@@ -28,8 +25,6 @@ export class RoomsGuard implements CanActivateChild {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.loginService.isLoggedIn
-      ? true
-      : this.route.navigate(['/login']);
+    return this.loginService.isAdmin;
   }
 }
