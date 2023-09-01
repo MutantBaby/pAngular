@@ -1,6 +1,7 @@
 import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 
+import { LoginService } from './services/login.service';
 import { ConfigService } from '../services/config/config.service';
 
 @Component({
@@ -12,11 +13,17 @@ export class LoginComponent {
   email: string = '';
   password: string = '';
 
-  constructor(private router: Router, private config: ConfigService) {}
+  constructor(
+    private router: Router,
+    private config: ConfigService,
+    private loginService: LoginService
+  ) {
+    console.log('Login Component');
+  }
 
   login(): void {
-    if (this.email === 'admin@gmail.com' && this.password === 'admin')
-      this.router.navigateByUrl('/rooms/add');
-    else alert('Login Failed');
+    if (this.loginService.login(this.email, this.password))
+      this.router.navigateByUrl('/rooms');
+    else this.router.navigateByUrl('/login');
   }
 }

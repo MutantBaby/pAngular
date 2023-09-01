@@ -3,15 +3,17 @@ import {
   ViewContainerRef,
   AfterViewInit,
   ElementRef,
+  OnDestroy,
   Component,
   ViewChild,
   Inject,
   OnInit,
-  OnDestroy,
 } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
+
 import { Observable, Subject } from 'rxjs';
 import { filter, takeUntil } from 'rxjs/operators';
-import { AsyncPipe } from '@angular/common';
 
 import {
   AppConfigService,
@@ -19,10 +21,9 @@ import {
 } from './InjectionTokens/app-config/app-config.service';
 import { RoomList } from './rooms/rooms.interface';
 import { RoomsService } from './rooms/services/rooms.service';
+import { AppInitializerService } from './appInitializer/app-initializer.service';
 import { AppConfigInterface } from './InjectionTokens/app-config/app-config.interface';
 import { LocalStorageTokenService } from './InjectionTokens/local-storage-token/local-storage-token.service';
-import { AppInitializerService } from './appInitializer/app-initializer.service';
-import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
